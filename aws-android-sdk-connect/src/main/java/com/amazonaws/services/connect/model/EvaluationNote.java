@@ -1,5 +1,5 @@
 /*
- * Copyright 2010-2023 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2010-2024 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -29,7 +29,7 @@ public class EvaluationNote implements Serializable {
      * </p>
      * <p>
      * <b>Constraints:</b><br/>
-     * <b>Length: </b>0 - 1024<br/>
+     * <b>Length: </b>0 - 3072<br/>
      */
     private String value;
 
@@ -39,7 +39,7 @@ public class EvaluationNote implements Serializable {
      * </p>
      * <p>
      * <b>Constraints:</b><br/>
-     * <b>Length: </b>0 - 1024<br/>
+     * <b>Length: </b>0 - 3072<br/>
      *
      * @return <p>
      *         The note for an item (section or question) in a contact
@@ -56,7 +56,7 @@ public class EvaluationNote implements Serializable {
      * </p>
      * <p>
      * <b>Constraints:</b><br/>
-     * <b>Length: </b>0 - 1024<br/>
+     * <b>Length: </b>0 - 3072<br/>
      *
      * @param value <p>
      *            The note for an item (section or question) in a contact
@@ -76,7 +76,7 @@ public class EvaluationNote implements Serializable {
      * together.
      * <p>
      * <b>Constraints:</b><br/>
-     * <b>Length: </b>0 - 1024<br/>
+     * <b>Length: </b>0 - 3072<br/>
      *
      * @param value <p>
      *            The note for an item (section or question) in a contact

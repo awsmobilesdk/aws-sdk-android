@@ -1,5 +1,5 @@
 /*
- * Copyright 2010-2023 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2010-2024 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -29,6 +29,19 @@ import com.amazonaws.AmazonWebServiceRequest;
  * >Historical Metrics Definitions</a> in the <i>Amazon Connect Administrator
  * Guide</i>.
  * </p>
+ * <note>
+ * <p>
+ * We recommend using the <a href=
+ * "https://docs.aws.amazon.com/connect/latest/APIReference/API_GetMetricDataV2.html"
+ * >GetMetricDataV2</a> API. It provides more flexibility, features, and the
+ * ability to query longer time ranges than <code>GetMetricData</code>. Use it
+ * to retrieve historical agent and contact metrics for the last 3 months, at
+ * varying intervals. You can also use it to build custom dashboards to measure
+ * historical queue and agent performance. For example, you can track the number
+ * of incoming contacts for the last 7 days, with data split by day, to see how
+ * contact volume changed per day of the week.
+ * </p>
+ * </note>
  */
 public class GetMetricDataRequest extends AmazonWebServiceRequest implements Serializable {
     /**
