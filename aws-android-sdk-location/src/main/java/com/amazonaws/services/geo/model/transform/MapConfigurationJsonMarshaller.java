@@ -1,5 +1,5 @@
 /*
- * Copyright 2010-2023 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2010-2024 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -27,6 +27,17 @@ class MapConfigurationJsonMarshaller {
     public void marshall(MapConfiguration mapConfiguration, AwsJsonWriter jsonWriter)
             throws Exception {
         jsonWriter.beginObject();
+        if (mapConfiguration.getCustomLayers() != null) {
+            java.util.List<String> customLayers = mapConfiguration.getCustomLayers();
+            jsonWriter.name("CustomLayers");
+            jsonWriter.beginArray();
+            for (String customLayersItem : customLayers) {
+                if (customLayersItem != null) {
+                    jsonWriter.value(customLayersItem);
+                }
+            }
+            jsonWriter.endArray();
+        }
         if (mapConfiguration.getPoliticalView() != null) {
             String politicalView = mapConfiguration.getPoliticalView();
             jsonWriter.name("PoliticalView");

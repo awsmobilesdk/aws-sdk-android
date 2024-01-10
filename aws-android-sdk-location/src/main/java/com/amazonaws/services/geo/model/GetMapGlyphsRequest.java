@@ -1,5 +1,5 @@
 /*
- * Copyright 2010-2023 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2010-2024 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -31,7 +31,7 @@ public class GetMapGlyphsRequest extends AmazonWebServiceRequest implements Seri
      * preference. For example, <code>Noto Sans Regular, Arial Unicode</code>.
      * </p>
      * <p>
-     * Valid fonts stacks for <a href=
+     * Valid font stacks for <a href=
      * "https://docs.aws.amazon.com/location/latest/developerguide/esri.html"
      * >Esri</a> styles:
      * </p>
@@ -187,7 +187,7 @@ public class GetMapGlyphsRequest extends AmazonWebServiceRequest implements Seri
      * preference. For example, <code>Noto Sans Regular, Arial Unicode</code>.
      * </p>
      * <p>
-     * Valid fonts stacks for <a href=
+     * Valid font stacks for <a href=
      * "https://docs.aws.amazon.com/location/latest/developerguide/esri.html"
      * >Esri</a> styles:
      * </p>
@@ -305,7 +305,7 @@ public class GetMapGlyphsRequest extends AmazonWebServiceRequest implements Seri
      *         <code>Noto Sans Regular, Arial Unicode</code>.
      *         </p>
      *         <p>
-     *         Valid fonts stacks for <a href=
+     *         Valid font stacks for <a href=
      *         "https://docs.aws.amazon.com/location/latest/developerguide/esri.html"
      *         >Esri</a> styles:
      *         </p>
@@ -431,7 +431,7 @@ public class GetMapGlyphsRequest extends AmazonWebServiceRequest implements Seri
      * preference. For example, <code>Noto Sans Regular, Arial Unicode</code>.
      * </p>
      * <p>
-     * Valid fonts stacks for <a href=
+     * Valid font stacks for <a href=
      * "https://docs.aws.amazon.com/location/latest/developerguide/esri.html"
      * >Esri</a> styles:
      * </p>
@@ -549,7 +549,7 @@ public class GetMapGlyphsRequest extends AmazonWebServiceRequest implements Seri
      *            <code>Noto Sans Regular, Arial Unicode</code>.
      *            </p>
      *            <p>
-     *            Valid fonts stacks for <a href=
+     *            Valid font stacks for <a href=
      *            "https://docs.aws.amazon.com/location/latest/developerguide/esri.html"
      *            >Esri</a> styles:
      *            </p>
@@ -676,7 +676,7 @@ public class GetMapGlyphsRequest extends AmazonWebServiceRequest implements Seri
      * preference. For example, <code>Noto Sans Regular, Arial Unicode</code>.
      * </p>
      * <p>
-     * Valid fonts stacks for <a href=
+     * Valid font stacks for <a href=
      * "https://docs.aws.amazon.com/location/latest/developerguide/esri.html"
      * >Esri</a> styles:
      * </p>
@@ -797,7 +797,7 @@ public class GetMapGlyphsRequest extends AmazonWebServiceRequest implements Seri
      *            <code>Noto Sans Regular, Arial Unicode</code>.
      *            </p>
      *            <p>
-     *            Valid fonts stacks for <a href=
+     *            Valid font stacks for <a href=
      *            "https://docs.aws.amazon.com/location/latest/developerguide/esri.html"
      *            >Esri</a> styles:
      *            </p>
