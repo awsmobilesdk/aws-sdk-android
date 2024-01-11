@@ -1,5 +1,5 @@
 /*
- * Copyright 2010-2023 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2010-2024 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -27,7 +27,9 @@ public enum LogTargetType {
     THING_GROUP("THING_GROUP"),
     CLIENT_ID("CLIENT_ID"),
     SOURCE_IP("SOURCE_IP"),
-    PRINCIPAL_ID("PRINCIPAL_ID");
+    PRINCIPAL_ID("PRINCIPAL_ID"),
+    EVENT_TYPE("EVENT_TYPE"),
+    DEVICE_DEFENDER("DEVICE_DEFENDER");
 
     private String value;
 
@@ -48,6 +50,8 @@ public enum LogTargetType {
         enumMap.put("CLIENT_ID", CLIENT_ID);
         enumMap.put("SOURCE_IP", SOURCE_IP);
         enumMap.put("PRINCIPAL_ID", PRINCIPAL_ID);
+        enumMap.put("EVENT_TYPE", EVENT_TYPE);
+        enumMap.put("DEVICE_DEFENDER", DEVICE_DEFENDER);
     }
 
     /**

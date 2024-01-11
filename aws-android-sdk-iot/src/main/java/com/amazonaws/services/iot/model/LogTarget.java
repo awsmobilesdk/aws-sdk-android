@@ -1,5 +1,5 @@
 /*
- * Copyright 2010-2023 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2010-2024 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -30,7 +30,7 @@ public class LogTarget implements Serializable {
      * <p>
      * <b>Constraints:</b><br/>
      * <b>Allowed Values: </b>DEFAULT, THING_GROUP, CLIENT_ID, SOURCE_IP,
-     * PRINCIPAL_ID
+     * PRINCIPAL_ID, EVENT_TYPE, DEVICE_DEFENDER
      */
     private String targetType;
 
@@ -48,7 +48,7 @@ public class LogTarget implements Serializable {
      * <p>
      * <b>Constraints:</b><br/>
      * <b>Allowed Values: </b>DEFAULT, THING_GROUP, CLIENT_ID, SOURCE_IP,
-     * PRINCIPAL_ID
+     * PRINCIPAL_ID, EVENT_TYPE, DEVICE_DEFENDER
      *
      * @return <p>
      *         The target type.
@@ -66,7 +66,7 @@ public class LogTarget implements Serializable {
      * <p>
      * <b>Constraints:</b><br/>
      * <b>Allowed Values: </b>DEFAULT, THING_GROUP, CLIENT_ID, SOURCE_IP,
-     * PRINCIPAL_ID
+     * PRINCIPAL_ID, EVENT_TYPE, DEVICE_DEFENDER
      *
      * @param targetType <p>
      *            The target type.
@@ -87,7 +87,7 @@ public class LogTarget implements Serializable {
      * <p>
      * <b>Constraints:</b><br/>
      * <b>Allowed Values: </b>DEFAULT, THING_GROUP, CLIENT_ID, SOURCE_IP,
-     * PRINCIPAL_ID
+     * PRINCIPAL_ID, EVENT_TYPE, DEVICE_DEFENDER
      *
      * @param targetType <p>
      *            The target type.
@@ -108,7 +108,7 @@ public class LogTarget implements Serializable {
      * <p>
      * <b>Constraints:</b><br/>
      * <b>Allowed Values: </b>DEFAULT, THING_GROUP, CLIENT_ID, SOURCE_IP,
-     * PRINCIPAL_ID
+     * PRINCIPAL_ID, EVENT_TYPE, DEVICE_DEFENDER
      *
      * @param targetType <p>
      *            The target type.
@@ -129,7 +129,7 @@ public class LogTarget implements Serializable {
      * <p>
      * <b>Constraints:</b><br/>
      * <b>Allowed Values: </b>DEFAULT, THING_GROUP, CLIENT_ID, SOURCE_IP,
-     * PRINCIPAL_ID
+     * PRINCIPAL_ID, EVENT_TYPE, DEVICE_DEFENDER
      *
      * @param targetType <p>
      *            The target type.
