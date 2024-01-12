@@ -1,5 +1,5 @@
 /*
- * Copyright 2010-2023 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2010-2024 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -23,6 +23,24 @@ import java.io.Serializable;
  * </p>
  */
 public class MapConfiguration implements Serializable {
+    /**
+     * <p>
+     * Specifies the custom layers for the style. Leave unset to not enable any
+     * custom layer, or, for styles that support custom layers, you can enable
+     * layer(s), such as <code>POI</code> layer for the VectorEsriNavigation
+     * style. Default is <code>unset</code>.
+     * </p>
+     * <note>
+     * <p>
+     * Currenlty only <code>VectorEsriNavigation</code> supports CustomLayers.
+     * For more information, see <a href=
+     * "https://docs.aws.amazon.com/location/latest/developerguide/map-concepts.html#map-custom-layers"
+     * >Custom Layers</a>.
+     * </p>
+     * </note>
+     */
+    private java.util.List<String> customLayers;
+
     /**
      * <p>
      * Specifies the political view for the style. Leave unset to not use a
@@ -59,12 +77,15 @@ public class MapConfiguration implements Serializable {
      * <ul>
      * <li>
      * <p>
-     * <code>VectorEsriDarkGrayCanvas</code> – The Esri Dark Gray Canvas map
-     * style. A vector basemap with a dark gray, neutral background with minimal
-     * colors, labels, and features that's designed to draw attention to your
-     * thematic content.
+     * <code>VectorEsriNavigation</code> – The Esri Navigation map style, which
+     * provides a detailed basemap for the world symbolized with a custom
+     * navigation map style that's designed for use during the day in mobile
+     * devices. It also includes a richer set of places, such as shops,
+     * services, restaurants, attractions, and other points of interest. Enable
+     * the <code>POI</code> layer by setting it in CustomLayers to leverage the
+     * additional places data.
      * </p>
-     * </li>
+     * <p/></li>
      * <li>
      * <p>
      * <code>RasterEsriImagery</code> – The Esri Imagery map style. A raster
@@ -96,10 +117,10 @@ public class MapConfiguration implements Serializable {
      * </li>
      * <li>
      * <p>
-     * <code>VectorEsriNavigation</code> – The Esri Navigation map style, which
-     * provides a detailed basemap for the world symbolized with a custom
-     * navigation map style that's designed for use during the day in mobile
-     * devices.
+     * <code>VectorEsriDarkGrayCanvas</code> – The Esri Dark Gray Canvas map
+     * style. A vector basemap with a dark gray, neutral background with minimal
+     * colors, labels, and features that's designed to draw attention to your
+     * thematic content.
      * </p>
      * </li>
      * </ul>
@@ -111,31 +132,10 @@ public class MapConfiguration implements Serializable {
      * <ul>
      * <li>
      * <p>
-     * <code>VectorHereContrast</code> – The HERE Contrast (Berlin) map style is
-     * a high contrast detailed base map of the world that blends 3D and 2D
-     * rendering.
-     * </p>
-     * <note>
-     * <p>
-     * The <code>VectorHereContrast</code> style has been renamed from
-     * <code>VectorHereBerlin</code>. <code>VectorHereBerlin</code> has been
-     * deprecated, but will continue to work in applications that use it.
-     * </p>
-     * </note></li>
-     * <li>
-     * <p>
      * <code>VectorHereExplore</code> – A default HERE map style containing a
      * neutral, global map and its features including roads, buildings,
      * landmarks, and water features. It also now includes a fully designed map
      * of Japan.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * <code>VectorHereExploreTruck</code> – A global map containing truck
-     * restrictions and attributes (e.g. width / height / HAZMAT) symbolized
-     * with highlighted segments and icons on top of HERE Explore to support use
-     * cases within transport and logistics.
      * </p>
      * </li>
      * <li>
@@ -159,6 +159,27 @@ public class MapConfiguration implements Serializable {
      * retrieved.
      * </p>
      * </note></li>
+     * <li>
+     * <p>
+     * <code>VectorHereContrast</code> – The HERE Contrast (Berlin) map style is
+     * a high contrast detailed base map of the world that blends 3D and 2D
+     * rendering.
+     * </p>
+     * <note>
+     * <p>
+     * The <code>VectorHereContrast</code> style has been renamed from
+     * <code>VectorHereBerlin</code>. <code>VectorHereBerlin</code> has been
+     * deprecated, but will continue to work in applications that use it.
+     * </p>
+     * </note></li>
+     * <li>
+     * <p>
+     * <code>VectorHereExploreTruck</code> – A global map containing truck
+     * restrictions and attributes (e.g. width / height / HAZMAT) symbolized
+     * with highlighted segments and icons on top of HERE Explore to support use
+     * cases within transport and logistics.
+     * </p>
+     * </li>
      * </ul>
      * <p>
      * Valid <a href=
@@ -235,6 +256,172 @@ public class MapConfiguration implements Serializable {
      * <b>Pattern: </b>^[-._\w]+$<br/>
      */
     private String style;
+
+    /**
+     * <p>
+     * Specifies the custom layers for the style. Leave unset to not enable any
+     * custom layer, or, for styles that support custom layers, you can enable
+     * layer(s), such as <code>POI</code> layer for the VectorEsriNavigation
+     * style. Default is <code>unset</code>.
+     * </p>
+     * <note>
+     * <p>
+     * Currenlty only <code>VectorEsriNavigation</code> supports CustomLayers.
+     * For more information, see <a href=
+     * "https://docs.aws.amazon.com/location/latest/developerguide/map-concepts.html#map-custom-layers"
+     * >Custom Layers</a>.
+     * </p>
+     * </note>
+     *
+     * @return <p>
+     *         Specifies the custom layers for the style. Leave unset to not
+     *         enable any custom layer, or, for styles that support custom
+     *         layers, you can enable layer(s), such as <code>POI</code> layer
+     *         for the VectorEsriNavigation style. Default is <code>unset</code>
+     *         .
+     *         </p>
+     *         <note>
+     *         <p>
+     *         Currenlty only <code>VectorEsriNavigation</code> supports
+     *         CustomLayers. For more information, see <a href=
+     *         "https://docs.aws.amazon.com/location/latest/developerguide/map-concepts.html#map-custom-layers"
+     *         >Custom Layers</a>.
+     *         </p>
+     *         </note>
+     */
+    public java.util.List<String> getCustomLayers() {
+        return customLayers;
+    }
+
+    /**
+     * <p>
+     * Specifies the custom layers for the style. Leave unset to not enable any
+     * custom layer, or, for styles that support custom layers, you can enable
+     * layer(s), such as <code>POI</code> layer for the VectorEsriNavigation
+     * style. Default is <code>unset</code>.
+     * </p>
+     * <note>
+     * <p>
+     * Currenlty only <code>VectorEsriNavigation</code> supports CustomLayers.
+     * For more information, see <a href=
+     * "https://docs.aws.amazon.com/location/latest/developerguide/map-concepts.html#map-custom-layers"
+     * >Custom Layers</a>.
+     * </p>
+     * </note>
+     *
+     * @param customLayers <p>
+     *            Specifies the custom layers for the style. Leave unset to not
+     *            enable any custom layer, or, for styles that support custom
+     *            layers, you can enable layer(s), such as <code>POI</code>
+     *            layer for the VectorEsriNavigation style. Default is
+     *            <code>unset</code>.
+     *            </p>
+     *            <note>
+     *            <p>
+     *            Currenlty only <code>VectorEsriNavigation</code> supports
+     *            CustomLayers. For more information, see <a href=
+     *            "https://docs.aws.amazon.com/location/latest/developerguide/map-concepts.html#map-custom-layers"
+     *            >Custom Layers</a>.
+     *            </p>
+     *            </note>
+     */
+    public void setCustomLayers(java.util.Collection<String> customLayers) {
+        if (customLayers == null) {
+            this.customLayers = null;
+            return;
+        }
+
+        this.customLayers = new java.util.ArrayList<String>(customLayers);
+    }
+
+    /**
+     * <p>
+     * Specifies the custom layers for the style. Leave unset to not enable any
+     * custom layer, or, for styles that support custom layers, you can enable
+     * layer(s), such as <code>POI</code> layer for the VectorEsriNavigation
+     * style. Default is <code>unset</code>.
+     * </p>
+     * <note>
+     * <p>
+     * Currenlty only <code>VectorEsriNavigation</code> supports CustomLayers.
+     * For more information, see <a href=
+     * "https://docs.aws.amazon.com/location/latest/developerguide/map-concepts.html#map-custom-layers"
+     * >Custom Layers</a>.
+     * </p>
+     * </note>
+     * <p>
+     * Returns a reference to this object so that method calls can be chained
+     * together.
+     *
+     * @param customLayers <p>
+     *            Specifies the custom layers for the style. Leave unset to not
+     *            enable any custom layer, or, for styles that support custom
+     *            layers, you can enable layer(s), such as <code>POI</code>
+     *            layer for the VectorEsriNavigation style. Default is
+     *            <code>unset</code>.
+     *            </p>
+     *            <note>
+     *            <p>
+     *            Currenlty only <code>VectorEsriNavigation</code> supports
+     *            CustomLayers. For more information, see <a href=
+     *            "https://docs.aws.amazon.com/location/latest/developerguide/map-concepts.html#map-custom-layers"
+     *            >Custom Layers</a>.
+     *            </p>
+     *            </note>
+     * @return A reference to this updated object so that method calls can be
+     *         chained together.
+     */
+    public MapConfiguration withCustomLayers(String... customLayers) {
+        if (getCustomLayers() == null) {
+            this.customLayers = new java.util.ArrayList<String>(customLayers.length);
+        }
+        for (String value : customLayers) {
+            this.customLayers.add(value);
+        }
+        return this;
+    }
+
+    /**
+     * <p>
+     * Specifies the custom layers for the style. Leave unset to not enable any
+     * custom layer, or, for styles that support custom layers, you can enable
+     * layer(s), such as <code>POI</code> layer for the VectorEsriNavigation
+     * style. Default is <code>unset</code>.
+     * </p>
+     * <note>
+     * <p>
+     * Currenlty only <code>VectorEsriNavigation</code> supports CustomLayers.
+     * For more information, see <a href=
+     * "https://docs.aws.amazon.com/location/latest/developerguide/map-concepts.html#map-custom-layers"
+     * >Custom Layers</a>.
+     * </p>
+     * </note>
+     * <p>
+     * Returns a reference to this object so that method calls can be chained
+     * together.
+     *
+     * @param customLayers <p>
+     *            Specifies the custom layers for the style. Leave unset to not
+     *            enable any custom layer, or, for styles that support custom
+     *            layers, you can enable layer(s), such as <code>POI</code>
+     *            layer for the VectorEsriNavigation style. Default is
+     *            <code>unset</code>.
+     *            </p>
+     *            <note>
+     *            <p>
+     *            Currenlty only <code>VectorEsriNavigation</code> supports
+     *            CustomLayers. For more information, see <a href=
+     *            "https://docs.aws.amazon.com/location/latest/developerguide/map-concepts.html#map-custom-layers"
+     *            >Custom Layers</a>.
+     *            </p>
+     *            </note>
+     * @return A reference to this updated object so that method calls can be
+     *         chained together.
+     */
+    public MapConfiguration withCustomLayers(java.util.Collection<String> customLayers) {
+        setCustomLayers(customLayers);
+        return this;
+    }
 
     /**
      * <p>
@@ -386,12 +573,15 @@ public class MapConfiguration implements Serializable {
      * <ul>
      * <li>
      * <p>
-     * <code>VectorEsriDarkGrayCanvas</code> – The Esri Dark Gray Canvas map
-     * style. A vector basemap with a dark gray, neutral background with minimal
-     * colors, labels, and features that's designed to draw attention to your
-     * thematic content.
+     * <code>VectorEsriNavigation</code> – The Esri Navigation map style, which
+     * provides a detailed basemap for the world symbolized with a custom
+     * navigation map style that's designed for use during the day in mobile
+     * devices. It also includes a richer set of places, such as shops,
+     * services, restaurants, attractions, and other points of interest. Enable
+     * the <code>POI</code> layer by setting it in CustomLayers to leverage the
+     * additional places data.
      * </p>
-     * </li>
+     * <p/></li>
      * <li>
      * <p>
      * <code>RasterEsriImagery</code> – The Esri Imagery map style. A raster
@@ -423,10 +613,10 @@ public class MapConfiguration implements Serializable {
      * </li>
      * <li>
      * <p>
-     * <code>VectorEsriNavigation</code> – The Esri Navigation map style, which
-     * provides a detailed basemap for the world symbolized with a custom
-     * navigation map style that's designed for use during the day in mobile
-     * devices.
+     * <code>VectorEsriDarkGrayCanvas</code> – The Esri Dark Gray Canvas map
+     * style. A vector basemap with a dark gray, neutral background with minimal
+     * colors, labels, and features that's designed to draw attention to your
+     * thematic content.
      * </p>
      * </li>
      * </ul>
@@ -438,31 +628,10 @@ public class MapConfiguration implements Serializable {
      * <ul>
      * <li>
      * <p>
-     * <code>VectorHereContrast</code> – The HERE Contrast (Berlin) map style is
-     * a high contrast detailed base map of the world that blends 3D and 2D
-     * rendering.
-     * </p>
-     * <note>
-     * <p>
-     * The <code>VectorHereContrast</code> style has been renamed from
-     * <code>VectorHereBerlin</code>. <code>VectorHereBerlin</code> has been
-     * deprecated, but will continue to work in applications that use it.
-     * </p>
-     * </note></li>
-     * <li>
-     * <p>
      * <code>VectorHereExplore</code> – A default HERE map style containing a
      * neutral, global map and its features including roads, buildings,
      * landmarks, and water features. It also now includes a fully designed map
      * of Japan.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * <code>VectorHereExploreTruck</code> – A global map containing truck
-     * restrictions and attributes (e.g. width / height / HAZMAT) symbolized
-     * with highlighted segments and icons on top of HERE Explore to support use
-     * cases within transport and logistics.
      * </p>
      * </li>
      * <li>
@@ -486,6 +655,27 @@ public class MapConfiguration implements Serializable {
      * retrieved.
      * </p>
      * </note></li>
+     * <li>
+     * <p>
+     * <code>VectorHereContrast</code> – The HERE Contrast (Berlin) map style is
+     * a high contrast detailed base map of the world that blends 3D and 2D
+     * rendering.
+     * </p>
+     * <note>
+     * <p>
+     * The <code>VectorHereContrast</code> style has been renamed from
+     * <code>VectorHereBerlin</code>. <code>VectorHereBerlin</code> has been
+     * deprecated, but will continue to work in applications that use it.
+     * </p>
+     * </note></li>
+     * <li>
+     * <p>
+     * <code>VectorHereExploreTruck</code> – A global map containing truck
+     * restrictions and attributes (e.g. width / height / HAZMAT) symbolized
+     * with highlighted segments and icons on top of HERE Explore to support use
+     * cases within transport and logistics.
+     * </p>
+     * </li>
      * </ul>
      * <p>
      * Valid <a href=
@@ -572,12 +762,16 @@ public class MapConfiguration implements Serializable {
      *         <ul>
      *         <li>
      *         <p>
-     *         <code>VectorEsriDarkGrayCanvas</code> – The Esri Dark Gray Canvas
-     *         map style. A vector basemap with a dark gray, neutral background
-     *         with minimal colors, labels, and features that's designed to draw
-     *         attention to your thematic content.
+     *         <code>VectorEsriNavigation</code> – The Esri Navigation map
+     *         style, which provides a detailed basemap for the world symbolized
+     *         with a custom navigation map style that's designed for use during
+     *         the day in mobile devices. It also includes a richer set of
+     *         places, such as shops, services, restaurants, attractions, and
+     *         other points of interest. Enable the <code>POI</code> layer by
+     *         setting it in CustomLayers to leverage the additional places
+     *         data.
      *         </p>
-     *         </li>
+     *         <p/></li>
      *         <li>
      *         <p>
      *         <code>RasterEsriImagery</code> – The Esri Imagery map style. A
@@ -612,10 +806,10 @@ public class MapConfiguration implements Serializable {
      *         </li>
      *         <li>
      *         <p>
-     *         <code>VectorEsriNavigation</code> – The Esri Navigation map
-     *         style, which provides a detailed basemap for the world symbolized
-     *         with a custom navigation map style that's designed for use during
-     *         the day in mobile devices.
+     *         <code>VectorEsriDarkGrayCanvas</code> – The Esri Dark Gray Canvas
+     *         map style. A vector basemap with a dark gray, neutral background
+     *         with minimal colors, labels, and features that's designed to draw
+     *         attention to your thematic content.
      *         </p>
      *         </li>
      *         </ul>
@@ -627,32 +821,10 @@ public class MapConfiguration implements Serializable {
      *         <ul>
      *         <li>
      *         <p>
-     *         <code>VectorHereContrast</code> – The HERE Contrast (Berlin) map
-     *         style is a high contrast detailed base map of the world that
-     *         blends 3D and 2D rendering.
-     *         </p>
-     *         <note>
-     *         <p>
-     *         The <code>VectorHereContrast</code> style has been renamed from
-     *         <code>VectorHereBerlin</code>. <code>VectorHereBerlin</code> has
-     *         been deprecated, but will continue to work in applications that
-     *         use it.
-     *         </p>
-     *         </note></li>
-     *         <li>
-     *         <p>
      *         <code>VectorHereExplore</code> – A default HERE map style
      *         containing a neutral, global map and its features including
      *         roads, buildings, landmarks, and water features. It also now
      *         includes a fully designed map of Japan.
-     *         </p>
-     *         </li>
-     *         <li>
-     *         <p>
-     *         <code>VectorHereExploreTruck</code> – A global map containing
-     *         truck restrictions and attributes (e.g. width / height / HAZMAT)
-     *         symbolized with highlighted segments and icons on top of HERE
-     *         Explore to support use cases within transport and logistics.
      *         </p>
      *         </li>
      *         <li>
@@ -677,6 +849,28 @@ public class MapConfiguration implements Serializable {
      *         include all tiles retrieved.
      *         </p>
      *         </note></li>
+     *         <li>
+     *         <p>
+     *         <code>VectorHereContrast</code> – The HERE Contrast (Berlin) map
+     *         style is a high contrast detailed base map of the world that
+     *         blends 3D and 2D rendering.
+     *         </p>
+     *         <note>
+     *         <p>
+     *         The <code>VectorHereContrast</code> style has been renamed from
+     *         <code>VectorHereBerlin</code>. <code>VectorHereBerlin</code> has
+     *         been deprecated, but will continue to work in applications that
+     *         use it.
+     *         </p>
+     *         </note></li>
+     *         <li>
+     *         <p>
+     *         <code>VectorHereExploreTruck</code> – A global map containing
+     *         truck restrictions and attributes (e.g. width / height / HAZMAT)
+     *         symbolized with highlighted segments and icons on top of HERE
+     *         Explore to support use cases within transport and logistics.
+     *         </p>
+     *         </li>
      *         </ul>
      *         <p>
      *         Valid <a href=
@@ -769,12 +963,15 @@ public class MapConfiguration implements Serializable {
      * <ul>
      * <li>
      * <p>
-     * <code>VectorEsriDarkGrayCanvas</code> – The Esri Dark Gray Canvas map
-     * style. A vector basemap with a dark gray, neutral background with minimal
-     * colors, labels, and features that's designed to draw attention to your
-     * thematic content.
+     * <code>VectorEsriNavigation</code> – The Esri Navigation map style, which
+     * provides a detailed basemap for the world symbolized with a custom
+     * navigation map style that's designed for use during the day in mobile
+     * devices. It also includes a richer set of places, such as shops,
+     * services, restaurants, attractions, and other points of interest. Enable
+     * the <code>POI</code> layer by setting it in CustomLayers to leverage the
+     * additional places data.
      * </p>
-     * </li>
+     * <p/></li>
      * <li>
      * <p>
      * <code>RasterEsriImagery</code> – The Esri Imagery map style. A raster
@@ -806,10 +1003,10 @@ public class MapConfiguration implements Serializable {
      * </li>
      * <li>
      * <p>
-     * <code>VectorEsriNavigation</code> – The Esri Navigation map style, which
-     * provides a detailed basemap for the world symbolized with a custom
-     * navigation map style that's designed for use during the day in mobile
-     * devices.
+     * <code>VectorEsriDarkGrayCanvas</code> – The Esri Dark Gray Canvas map
+     * style. A vector basemap with a dark gray, neutral background with minimal
+     * colors, labels, and features that's designed to draw attention to your
+     * thematic content.
      * </p>
      * </li>
      * </ul>
@@ -821,31 +1018,10 @@ public class MapConfiguration implements Serializable {
      * <ul>
      * <li>
      * <p>
-     * <code>VectorHereContrast</code> – The HERE Contrast (Berlin) map style is
-     * a high contrast detailed base map of the world that blends 3D and 2D
-     * rendering.
-     * </p>
-     * <note>
-     * <p>
-     * The <code>VectorHereContrast</code> style has been renamed from
-     * <code>VectorHereBerlin</code>. <code>VectorHereBerlin</code> has been
-     * deprecated, but will continue to work in applications that use it.
-     * </p>
-     * </note></li>
-     * <li>
-     * <p>
      * <code>VectorHereExplore</code> – A default HERE map style containing a
      * neutral, global map and its features including roads, buildings,
      * landmarks, and water features. It also now includes a fully designed map
      * of Japan.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * <code>VectorHereExploreTruck</code> – A global map containing truck
-     * restrictions and attributes (e.g. width / height / HAZMAT) symbolized
-     * with highlighted segments and icons on top of HERE Explore to support use
-     * cases within transport and logistics.
      * </p>
      * </li>
      * <li>
@@ -869,6 +1045,27 @@ public class MapConfiguration implements Serializable {
      * retrieved.
      * </p>
      * </note></li>
+     * <li>
+     * <p>
+     * <code>VectorHereContrast</code> – The HERE Contrast (Berlin) map style is
+     * a high contrast detailed base map of the world that blends 3D and 2D
+     * rendering.
+     * </p>
+     * <note>
+     * <p>
+     * The <code>VectorHereContrast</code> style has been renamed from
+     * <code>VectorHereBerlin</code>. <code>VectorHereBerlin</code> has been
+     * deprecated, but will continue to work in applications that use it.
+     * </p>
+     * </note></li>
+     * <li>
+     * <p>
+     * <code>VectorHereExploreTruck</code> – A global map containing truck
+     * restrictions and attributes (e.g. width / height / HAZMAT) symbolized
+     * with highlighted segments and icons on top of HERE Explore to support use
+     * cases within transport and logistics.
+     * </p>
+     * </li>
      * </ul>
      * <p>
      * Valid <a href=
@@ -956,12 +1153,16 @@ public class MapConfiguration implements Serializable {
      *            <ul>
      *            <li>
      *            <p>
-     *            <code>VectorEsriDarkGrayCanvas</code> – The Esri Dark Gray
-     *            Canvas map style. A vector basemap with a dark gray, neutral
-     *            background with minimal colors, labels, and features that's
-     *            designed to draw attention to your thematic content.
+     *            <code>VectorEsriNavigation</code> – The Esri Navigation map
+     *            style, which provides a detailed basemap for the world
+     *            symbolized with a custom navigation map style that's designed
+     *            for use during the day in mobile devices. It also includes a
+     *            richer set of places, such as shops, services, restaurants,
+     *            attractions, and other points of interest. Enable the
+     *            <code>POI</code> layer by setting it in CustomLayers to
+     *            leverage the additional places data.
      *            </p>
-     *            </li>
+     *            <p/></li>
      *            <li>
      *            <p>
      *            <code>RasterEsriImagery</code> – The Esri Imagery map style. A
@@ -997,10 +1198,10 @@ public class MapConfiguration implements Serializable {
      *            </li>
      *            <li>
      *            <p>
-     *            <code>VectorEsriNavigation</code> – The Esri Navigation map
-     *            style, which provides a detailed basemap for the world
-     *            symbolized with a custom navigation map style that's designed
-     *            for use during the day in mobile devices.
+     *            <code>VectorEsriDarkGrayCanvas</code> – The Esri Dark Gray
+     *            Canvas map style. A vector basemap with a dark gray, neutral
+     *            background with minimal colors, labels, and features that's
+     *            designed to draw attention to your thematic content.
      *            </p>
      *            </li>
      *            </ul>
@@ -1012,33 +1213,10 @@ public class MapConfiguration implements Serializable {
      *            <ul>
      *            <li>
      *            <p>
-     *            <code>VectorHereContrast</code> – The HERE Contrast (Berlin)
-     *            map style is a high contrast detailed base map of the world
-     *            that blends 3D and 2D rendering.
-     *            </p>
-     *            <note>
-     *            <p>
-     *            The <code>VectorHereContrast</code> style has been renamed
-     *            from <code>VectorHereBerlin</code>.
-     *            <code>VectorHereBerlin</code> has been deprecated, but will
-     *            continue to work in applications that use it.
-     *            </p>
-     *            </note></li>
-     *            <li>
-     *            <p>
      *            <code>VectorHereExplore</code> – A default HERE map style
      *            containing a neutral, global map and its features including
      *            roads, buildings, landmarks, and water features. It also now
      *            includes a fully designed map of Japan.
-     *            </p>
-     *            </li>
-     *            <li>
-     *            <p>
-     *            <code>VectorHereExploreTruck</code> – A global map containing
-     *            truck restrictions and attributes (e.g. width / height /
-     *            HAZMAT) symbolized with highlighted segments and icons on top
-     *            of HERE Explore to support use cases within transport and
-     *            logistics.
      *            </p>
      *            </li>
      *            <li>
@@ -1063,6 +1241,29 @@ public class MapConfiguration implements Serializable {
      *            charges will include all tiles retrieved.
      *            </p>
      *            </note></li>
+     *            <li>
+     *            <p>
+     *            <code>VectorHereContrast</code> – The HERE Contrast (Berlin)
+     *            map style is a high contrast detailed base map of the world
+     *            that blends 3D and 2D rendering.
+     *            </p>
+     *            <note>
+     *            <p>
+     *            The <code>VectorHereContrast</code> style has been renamed
+     *            from <code>VectorHereBerlin</code>.
+     *            <code>VectorHereBerlin</code> has been deprecated, but will
+     *            continue to work in applications that use it.
+     *            </p>
+     *            </note></li>
+     *            <li>
+     *            <p>
+     *            <code>VectorHereExploreTruck</code> – A global map containing
+     *            truck restrictions and attributes (e.g. width / height /
+     *            HAZMAT) symbolized with highlighted segments and icons on top
+     *            of HERE Explore to support use cases within transport and
+     *            logistics.
+     *            </p>
+     *            </li>
      *            </ul>
      *            <p>
      *            Valid <a href=
@@ -1156,12 +1357,15 @@ public class MapConfiguration implements Serializable {
      * <ul>
      * <li>
      * <p>
-     * <code>VectorEsriDarkGrayCanvas</code> – The Esri Dark Gray Canvas map
-     * style. A vector basemap with a dark gray, neutral background with minimal
-     * colors, labels, and features that's designed to draw attention to your
-     * thematic content.
+     * <code>VectorEsriNavigation</code> – The Esri Navigation map style, which
+     * provides a detailed basemap for the world symbolized with a custom
+     * navigation map style that's designed for use during the day in mobile
+     * devices. It also includes a richer set of places, such as shops,
+     * services, restaurants, attractions, and other points of interest. Enable
+     * the <code>POI</code> layer by setting it in CustomLayers to leverage the
+     * additional places data.
      * </p>
-     * </li>
+     * <p/></li>
      * <li>
      * <p>
      * <code>RasterEsriImagery</code> – The Esri Imagery map style. A raster
@@ -1193,10 +1397,10 @@ public class MapConfiguration implements Serializable {
      * </li>
      * <li>
      * <p>
-     * <code>VectorEsriNavigation</code> – The Esri Navigation map style, which
-     * provides a detailed basemap for the world symbolized with a custom
-     * navigation map style that's designed for use during the day in mobile
-     * devices.
+     * <code>VectorEsriDarkGrayCanvas</code> – The Esri Dark Gray Canvas map
+     * style. A vector basemap with a dark gray, neutral background with minimal
+     * colors, labels, and features that's designed to draw attention to your
+     * thematic content.
      * </p>
      * </li>
      * </ul>
@@ -1208,31 +1412,10 @@ public class MapConfiguration implements Serializable {
      * <ul>
      * <li>
      * <p>
-     * <code>VectorHereContrast</code> – The HERE Contrast (Berlin) map style is
-     * a high contrast detailed base map of the world that blends 3D and 2D
-     * rendering.
-     * </p>
-     * <note>
-     * <p>
-     * The <code>VectorHereContrast</code> style has been renamed from
-     * <code>VectorHereBerlin</code>. <code>VectorHereBerlin</code> has been
-     * deprecated, but will continue to work in applications that use it.
-     * </p>
-     * </note></li>
-     * <li>
-     * <p>
      * <code>VectorHereExplore</code> – A default HERE map style containing a
      * neutral, global map and its features including roads, buildings,
      * landmarks, and water features. It also now includes a fully designed map
      * of Japan.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * <code>VectorHereExploreTruck</code> – A global map containing truck
-     * restrictions and attributes (e.g. width / height / HAZMAT) symbolized
-     * with highlighted segments and icons on top of HERE Explore to support use
-     * cases within transport and logistics.
      * </p>
      * </li>
      * <li>
@@ -1256,6 +1439,27 @@ public class MapConfiguration implements Serializable {
      * retrieved.
      * </p>
      * </note></li>
+     * <li>
+     * <p>
+     * <code>VectorHereContrast</code> – The HERE Contrast (Berlin) map style is
+     * a high contrast detailed base map of the world that blends 3D and 2D
+     * rendering.
+     * </p>
+     * <note>
+     * <p>
+     * The <code>VectorHereContrast</code> style has been renamed from
+     * <code>VectorHereBerlin</code>. <code>VectorHereBerlin</code> has been
+     * deprecated, but will continue to work in applications that use it.
+     * </p>
+     * </note></li>
+     * <li>
+     * <p>
+     * <code>VectorHereExploreTruck</code> – A global map containing truck
+     * restrictions and attributes (e.g. width / height / HAZMAT) symbolized
+     * with highlighted segments and icons on top of HERE Explore to support use
+     * cases within transport and logistics.
+     * </p>
+     * </li>
      * </ul>
      * <p>
      * Valid <a href=
@@ -1346,12 +1550,16 @@ public class MapConfiguration implements Serializable {
      *            <ul>
      *            <li>
      *            <p>
-     *            <code>VectorEsriDarkGrayCanvas</code> – The Esri Dark Gray
-     *            Canvas map style. A vector basemap with a dark gray, neutral
-     *            background with minimal colors, labels, and features that's
-     *            designed to draw attention to your thematic content.
+     *            <code>VectorEsriNavigation</code> – The Esri Navigation map
+     *            style, which provides a detailed basemap for the world
+     *            symbolized with a custom navigation map style that's designed
+     *            for use during the day in mobile devices. It also includes a
+     *            richer set of places, such as shops, services, restaurants,
+     *            attractions, and other points of interest. Enable the
+     *            <code>POI</code> layer by setting it in CustomLayers to
+     *            leverage the additional places data.
      *            </p>
-     *            </li>
+     *            <p/></li>
      *            <li>
      *            <p>
      *            <code>RasterEsriImagery</code> – The Esri Imagery map style. A
@@ -1387,10 +1595,10 @@ public class MapConfiguration implements Serializable {
      *            </li>
      *            <li>
      *            <p>
-     *            <code>VectorEsriNavigation</code> – The Esri Navigation map
-     *            style, which provides a detailed basemap for the world
-     *            symbolized with a custom navigation map style that's designed
-     *            for use during the day in mobile devices.
+     *            <code>VectorEsriDarkGrayCanvas</code> – The Esri Dark Gray
+     *            Canvas map style. A vector basemap with a dark gray, neutral
+     *            background with minimal colors, labels, and features that's
+     *            designed to draw attention to your thematic content.
      *            </p>
      *            </li>
      *            </ul>
@@ -1402,33 +1610,10 @@ public class MapConfiguration implements Serializable {
      *            <ul>
      *            <li>
      *            <p>
-     *            <code>VectorHereContrast</code> – The HERE Contrast (Berlin)
-     *            map style is a high contrast detailed base map of the world
-     *            that blends 3D and 2D rendering.
-     *            </p>
-     *            <note>
-     *            <p>
-     *            The <code>VectorHereContrast</code> style has been renamed
-     *            from <code>VectorHereBerlin</code>.
-     *            <code>VectorHereBerlin</code> has been deprecated, but will
-     *            continue to work in applications that use it.
-     *            </p>
-     *            </note></li>
-     *            <li>
-     *            <p>
      *            <code>VectorHereExplore</code> – A default HERE map style
      *            containing a neutral, global map and its features including
      *            roads, buildings, landmarks, and water features. It also now
      *            includes a fully designed map of Japan.
-     *            </p>
-     *            </li>
-     *            <li>
-     *            <p>
-     *            <code>VectorHereExploreTruck</code> – A global map containing
-     *            truck restrictions and attributes (e.g. width / height /
-     *            HAZMAT) symbolized with highlighted segments and icons on top
-     *            of HERE Explore to support use cases within transport and
-     *            logistics.
      *            </p>
      *            </li>
      *            <li>
@@ -1453,6 +1638,29 @@ public class MapConfiguration implements Serializable {
      *            charges will include all tiles retrieved.
      *            </p>
      *            </note></li>
+     *            <li>
+     *            <p>
+     *            <code>VectorHereContrast</code> – The HERE Contrast (Berlin)
+     *            map style is a high contrast detailed base map of the world
+     *            that blends 3D and 2D rendering.
+     *            </p>
+     *            <note>
+     *            <p>
+     *            The <code>VectorHereContrast</code> style has been renamed
+     *            from <code>VectorHereBerlin</code>.
+     *            <code>VectorHereBerlin</code> has been deprecated, but will
+     *            continue to work in applications that use it.
+     *            </p>
+     *            </note></li>
+     *            <li>
+     *            <p>
+     *            <code>VectorHereExploreTruck</code> – A global map containing
+     *            truck restrictions and attributes (e.g. width / height /
+     *            HAZMAT) symbolized with highlighted segments and icons on top
+     *            of HERE Explore to support use cases within transport and
+     *            logistics.
+     *            </p>
+     *            </li>
      *            </ul>
      *            <p>
      *            Valid <a href=
@@ -1548,6 +1756,8 @@ public class MapConfiguration implements Serializable {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("{");
+        if (getCustomLayers() != null)
+            sb.append("CustomLayers: " + getCustomLayers() + ",");
         if (getPoliticalView() != null)
             sb.append("PoliticalView: " + getPoliticalView() + ",");
         if (getStyle() != null)
@@ -1561,6 +1771,8 @@ public class MapConfiguration implements Serializable {
         final int prime = 31;
         int hashCode = 1;
 
+        hashCode = prime * hashCode
+                + ((getCustomLayers() == null) ? 0 : getCustomLayers().hashCode());
         hashCode = prime * hashCode
                 + ((getPoliticalView() == null) ? 0 : getPoliticalView().hashCode());
         hashCode = prime * hashCode + ((getStyle() == null) ? 0 : getStyle().hashCode());
@@ -1578,6 +1790,11 @@ public class MapConfiguration implements Serializable {
             return false;
         MapConfiguration other = (MapConfiguration) obj;
 
+        if (other.getCustomLayers() == null ^ this.getCustomLayers() == null)
+            return false;
+        if (other.getCustomLayers() != null
+                && other.getCustomLayers().equals(this.getCustomLayers()) == false)
+            return false;
         if (other.getPoliticalView() == null ^ this.getPoliticalView() == null)
             return false;
         if (other.getPoliticalView() != null

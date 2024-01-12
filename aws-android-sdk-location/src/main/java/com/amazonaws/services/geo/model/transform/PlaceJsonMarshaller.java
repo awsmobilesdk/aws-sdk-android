@@ -1,5 +1,5 @@
 /*
- * Copyright 2010-2023 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2010-2024 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -86,6 +86,11 @@ class PlaceJsonMarshaller {
             String street = place.getStreet();
             jsonWriter.name("Street");
             jsonWriter.value(street);
+        }
+        if (place.getSubMunicipality() != null) {
+            String subMunicipality = place.getSubMunicipality();
+            jsonWriter.name("SubMunicipality");
+            jsonWriter.value(subMunicipality);
         }
         if (place.getSubRegion() != null) {
             String subRegion = place.getSubRegion();

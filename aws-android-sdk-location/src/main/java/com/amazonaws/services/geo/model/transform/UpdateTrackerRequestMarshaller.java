@@ -1,5 +1,5 @@
 /*
- * Copyright 2010-2023 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2010-2024 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -74,6 +74,12 @@ public class UpdateTrackerRequestMarshaller implements
                 jsonWriter.name("EventBridgeEnabled");
                 jsonWriter.value(eventBridgeEnabled);
             }
+            if (updateTrackerRequest.getKmsKeyEnableGeospatialQueries() != null) {
+                Boolean kmsKeyEnableGeospatialQueries = updateTrackerRequest
+                        .getKmsKeyEnableGeospatialQueries();
+                jsonWriter.name("KmsKeyEnableGeospatialQueries");
+                jsonWriter.value(kmsKeyEnableGeospatialQueries);
+            }
             if (updateTrackerRequest.getPositionFiltering() != null) {
                 String positionFiltering = updateTrackerRequest.getPositionFiltering();
                 jsonWriter.name("PositionFiltering");
@@ -103,7 +109,7 @@ public class UpdateTrackerRequestMarshaller implements
         if (!request.getHeaders().containsKey("Content-Type")) {
             request.addHeader("Content-Type", "application/x-amz-json-1.1");
         }
-        request.setHostPrefix("tracking.");
+        request.setHostPrefix("cp.tracking.");
 
         return request;
     }

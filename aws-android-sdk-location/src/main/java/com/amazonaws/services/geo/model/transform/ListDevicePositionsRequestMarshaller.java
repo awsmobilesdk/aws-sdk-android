@@ -1,5 +1,5 @@
 /*
- * Copyright 2010-2023 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2010-2024 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -65,6 +65,13 @@ public class ListDevicePositionsRequestMarshaller implements
             AwsJsonWriter jsonWriter = JsonUtils.getJsonWriter(stringWriter);
             jsonWriter.beginObject();
 
+            if (listDevicePositionsRequest.getFilterGeometry() != null) {
+                TrackingFilterGeometry filterGeometry = listDevicePositionsRequest
+                        .getFilterGeometry();
+                jsonWriter.name("FilterGeometry");
+                TrackingFilterGeometryJsonMarshaller.getInstance().marshall(filterGeometry,
+                        jsonWriter);
+            }
             if (listDevicePositionsRequest.getMaxResults() != null) {
                 Integer maxResults = listDevicePositionsRequest.getMaxResults();
                 jsonWriter.name("MaxResults");

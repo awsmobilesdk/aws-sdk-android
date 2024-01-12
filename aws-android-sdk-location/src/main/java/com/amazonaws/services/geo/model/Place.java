@@ -1,5 +1,5 @@
 /*
- * Copyright 2010-2023 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2010-2024 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -134,6 +134,26 @@ public class Place implements Serializable {
 
     /**
      * <p>
+     * An area that's part of a larger municipality. For example,
+     * <code>Blissville</code> is a submunicipality in the Queen County in New
+     * York.
+     * </p>
+     * <note>
+     * <p>
+     * This property is only returned for a place index that uses Esri as a data
+     * provider. The property is represented as a <code>district</code>.
+     * </p>
+     * </note>
+     * <p>
+     * For more information about data providers, see <a href=
+     * "https://docs.aws.amazon.com/location/latest/developerguide/what-is-data-provider.html"
+     * >Amazon Location Service data providers</a>.
+     * </p>
+     */
+    private String subMunicipality;
+
+    /**
+     * <p>
      * A county, or an area that's part of a larger region. For example,
      * <code>Metro Vancouver</code>.
      * </p>
@@ -164,8 +184,9 @@ public class Place implements Serializable {
      * </p>
      * <note>
      * <p>
-     * Returned only for a place index that uses Esri or Grab as a data
-     * provider. Is not returned for <code>SearchPlaceIndexForPosition</code>.
+     * This property is returned only for a place index that uses Esri or Grab
+     * as a data provider. It is not returned for
+     * <code>SearchPlaceIndexForPosition</code>.
      * </p>
      * </note>
      */
@@ -178,7 +199,8 @@ public class Place implements Serializable {
      * </p>
      * <note>
      * <p>
-     * Returned only for a place index that uses Esri as a data provider.
+     * This property is returned only for a place index that uses Esri as a data
+     * provider.
      * </p>
      * </note>
      */
@@ -944,6 +966,132 @@ public class Place implements Serializable {
 
     /**
      * <p>
+     * An area that's part of a larger municipality. For example,
+     * <code>Blissville</code> is a submunicipality in the Queen County in New
+     * York.
+     * </p>
+     * <note>
+     * <p>
+     * This property is only returned for a place index that uses Esri as a data
+     * provider. The property is represented as a <code>district</code>.
+     * </p>
+     * </note>
+     * <p>
+     * For more information about data providers, see <a href=
+     * "https://docs.aws.amazon.com/location/latest/developerguide/what-is-data-provider.html"
+     * >Amazon Location Service data providers</a>.
+     * </p>
+     *
+     * @return <p>
+     *         An area that's part of a larger municipality. For example,
+     *         <code>Blissville</code> is a submunicipality in the Queen County
+     *         in New York.
+     *         </p>
+     *         <note>
+     *         <p>
+     *         This property is only returned for a place index that uses Esri
+     *         as a data provider. The property is represented as a
+     *         <code>district</code>.
+     *         </p>
+     *         </note>
+     *         <p>
+     *         For more information about data providers, see <a href=
+     *         "https://docs.aws.amazon.com/location/latest/developerguide/what-is-data-provider.html"
+     *         >Amazon Location Service data providers</a>.
+     *         </p>
+     */
+    public String getSubMunicipality() {
+        return subMunicipality;
+    }
+
+    /**
+     * <p>
+     * An area that's part of a larger municipality. For example,
+     * <code>Blissville</code> is a submunicipality in the Queen County in New
+     * York.
+     * </p>
+     * <note>
+     * <p>
+     * This property is only returned for a place index that uses Esri as a data
+     * provider. The property is represented as a <code>district</code>.
+     * </p>
+     * </note>
+     * <p>
+     * For more information about data providers, see <a href=
+     * "https://docs.aws.amazon.com/location/latest/developerguide/what-is-data-provider.html"
+     * >Amazon Location Service data providers</a>.
+     * </p>
+     *
+     * @param subMunicipality <p>
+     *            An area that's part of a larger municipality. For example,
+     *            <code>Blissville</code> is a submunicipality in the Queen
+     *            County in New York.
+     *            </p>
+     *            <note>
+     *            <p>
+     *            This property is only returned for a place index that uses
+     *            Esri as a data provider. The property is represented as a
+     *            <code>district</code>.
+     *            </p>
+     *            </note>
+     *            <p>
+     *            For more information about data providers, see <a href=
+     *            "https://docs.aws.amazon.com/location/latest/developerguide/what-is-data-provider.html"
+     *            >Amazon Location Service data providers</a>.
+     *            </p>
+     */
+    public void setSubMunicipality(String subMunicipality) {
+        this.subMunicipality = subMunicipality;
+    }
+
+    /**
+     * <p>
+     * An area that's part of a larger municipality. For example,
+     * <code>Blissville</code> is a submunicipality in the Queen County in New
+     * York.
+     * </p>
+     * <note>
+     * <p>
+     * This property is only returned for a place index that uses Esri as a data
+     * provider. The property is represented as a <code>district</code>.
+     * </p>
+     * </note>
+     * <p>
+     * For more information about data providers, see <a href=
+     * "https://docs.aws.amazon.com/location/latest/developerguide/what-is-data-provider.html"
+     * >Amazon Location Service data providers</a>.
+     * </p>
+     * <p>
+     * Returns a reference to this object so that method calls can be chained
+     * together.
+     *
+     * @param subMunicipality <p>
+     *            An area that's part of a larger municipality. For example,
+     *            <code>Blissville</code> is a submunicipality in the Queen
+     *            County in New York.
+     *            </p>
+     *            <note>
+     *            <p>
+     *            This property is only returned for a place index that uses
+     *            Esri as a data provider. The property is represented as a
+     *            <code>district</code>.
+     *            </p>
+     *            </note>
+     *            <p>
+     *            For more information about data providers, see <a href=
+     *            "https://docs.aws.amazon.com/location/latest/developerguide/what-is-data-provider.html"
+     *            >Amazon Location Service data providers</a>.
+     *            </p>
+     * @return A reference to this updated object so that method calls can be
+     *         chained together.
+     */
+    public Place withSubMunicipality(String subMunicipality) {
+        this.subMunicipality = subMunicipality;
+        return this;
+    }
+
+    /**
+     * <p>
      * A county, or an area that's part of a larger region. For example,
      * <code>Metro Vancouver</code>.
      * </p>
@@ -1135,8 +1283,9 @@ public class Place implements Serializable {
      * </p>
      * <note>
      * <p>
-     * Returned only for a place index that uses Esri or Grab as a data
-     * provider. Is not returned for <code>SearchPlaceIndexForPosition</code>.
+     * This property is returned only for a place index that uses Esri or Grab
+     * as a data provider. It is not returned for
+     * <code>SearchPlaceIndexForPosition</code>.
      * </p>
      * </note>
      *
@@ -1147,8 +1296,8 @@ public class Place implements Serializable {
      *         </p>
      *         <note>
      *         <p>
-     *         Returned only for a place index that uses Esri or Grab as a data
-     *         provider. Is not returned for
+     *         This property is returned only for a place index that uses Esri
+     *         or Grab as a data provider. It is not returned for
      *         <code>SearchPlaceIndexForPosition</code>.
      *         </p>
      *         </note>
@@ -1165,8 +1314,9 @@ public class Place implements Serializable {
      * </p>
      * <note>
      * <p>
-     * Returned only for a place index that uses Esri or Grab as a data
-     * provider. Is not returned for <code>SearchPlaceIndexForPosition</code>.
+     * This property is returned only for a place index that uses Esri or Grab
+     * as a data provider. It is not returned for
+     * <code>SearchPlaceIndexForPosition</code>.
      * </p>
      * </note>
      *
@@ -1177,8 +1327,8 @@ public class Place implements Serializable {
      *            </p>
      *            <note>
      *            <p>
-     *            Returned only for a place index that uses Esri or Grab as a
-     *            data provider. Is not returned for
+     *            This property is returned only for a place index that uses
+     *            Esri or Grab as a data provider. It is not returned for
      *            <code>SearchPlaceIndexForPosition</code>.
      *            </p>
      *            </note>
@@ -1195,8 +1345,9 @@ public class Place implements Serializable {
      * </p>
      * <note>
      * <p>
-     * Returned only for a place index that uses Esri or Grab as a data
-     * provider. Is not returned for <code>SearchPlaceIndexForPosition</code>.
+     * This property is returned only for a place index that uses Esri or Grab
+     * as a data provider. It is not returned for
+     * <code>SearchPlaceIndexForPosition</code>.
      * </p>
      * </note>
      * <p>
@@ -1210,8 +1361,8 @@ public class Place implements Serializable {
      *            </p>
      *            <note>
      *            <p>
-     *            Returned only for a place index that uses Esri or Grab as a
-     *            data provider. Is not returned for
+     *            This property is returned only for a place index that uses
+     *            Esri or Grab as a data provider. It is not returned for
      *            <code>SearchPlaceIndexForPosition</code>.
      *            </p>
      *            </note>
@@ -1230,7 +1381,8 @@ public class Place implements Serializable {
      * </p>
      * <note>
      * <p>
-     * Returned only for a place index that uses Esri as a data provider.
+     * This property is returned only for a place index that uses Esri as a data
+     * provider.
      * </p>
      * </note>
      *
@@ -1240,8 +1392,8 @@ public class Place implements Serializable {
      *         </p>
      *         <note>
      *         <p>
-     *         Returned only for a place index that uses Esri as a data
-     *         provider.
+     *         This property is returned only for a place index that uses Esri
+     *         as a data provider.
      *         </p>
      *         </note>
      */
@@ -1256,7 +1408,8 @@ public class Place implements Serializable {
      * </p>
      * <note>
      * <p>
-     * Returned only for a place index that uses Esri as a data provider.
+     * This property is returned only for a place index that uses Esri as a data
+     * provider.
      * </p>
      * </note>
      *
@@ -1266,8 +1419,8 @@ public class Place implements Serializable {
      *            </p>
      *            <note>
      *            <p>
-     *            Returned only for a place index that uses Esri as a data
-     *            provider.
+     *            This property is returned only for a place index that uses
+     *            Esri as a data provider.
      *            </p>
      *            </note>
      */
@@ -1282,7 +1435,8 @@ public class Place implements Serializable {
      * </p>
      * <note>
      * <p>
-     * Returned only for a place index that uses Esri as a data provider.
+     * This property is returned only for a place index that uses Esri as a data
+     * provider.
      * </p>
      * </note>
      * <p>
@@ -1295,8 +1449,8 @@ public class Place implements Serializable {
      *            </p>
      *            <note>
      *            <p>
-     *            Returned only for a place index that uses Esri as a data
-     *            provider.
+     *            This property is returned only for a place index that uses
+     *            Esri as a data provider.
      *            </p>
      *            </note>
      * @return A reference to this updated object so that method calls can be
@@ -1340,6 +1494,8 @@ public class Place implements Serializable {
             sb.append("Region: " + getRegion() + ",");
         if (getStreet() != null)
             sb.append("Street: " + getStreet() + ",");
+        if (getSubMunicipality() != null)
+            sb.append("SubMunicipality: " + getSubMunicipality() + ",");
         if (getSubRegion() != null)
             sb.append("SubRegion: " + getSubRegion() + ",");
         if (getSupplementalCategories() != null)
@@ -1374,6 +1530,8 @@ public class Place implements Serializable {
         hashCode = prime * hashCode + ((getPostalCode() == null) ? 0 : getPostalCode().hashCode());
         hashCode = prime * hashCode + ((getRegion() == null) ? 0 : getRegion().hashCode());
         hashCode = prime * hashCode + ((getStreet() == null) ? 0 : getStreet().hashCode());
+        hashCode = prime * hashCode
+                + ((getSubMunicipality() == null) ? 0 : getSubMunicipality().hashCode());
         hashCode = prime * hashCode + ((getSubRegion() == null) ? 0 : getSubRegion().hashCode());
         hashCode = prime
                 * hashCode
@@ -1445,6 +1603,11 @@ public class Place implements Serializable {
         if (other.getStreet() == null ^ this.getStreet() == null)
             return false;
         if (other.getStreet() != null && other.getStreet().equals(this.getStreet()) == false)
+            return false;
+        if (other.getSubMunicipality() == null ^ this.getSubMunicipality() == null)
+            return false;
+        if (other.getSubMunicipality() != null
+                && other.getSubMunicipality().equals(this.getSubMunicipality()) == false)
             return false;
         if (other.getSubRegion() == null ^ this.getSubRegion() == null)
             return false;

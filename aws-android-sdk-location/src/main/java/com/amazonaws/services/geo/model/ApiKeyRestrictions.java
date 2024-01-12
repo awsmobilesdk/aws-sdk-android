@@ -1,5 +1,5 @@
 /*
- * Copyright 2010-2023 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2010-2024 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -176,7 +176,7 @@ public class ApiKeyRestrictions implements Serializable {
      * Other than wildcards, you must include the full ARN, including the
      * <code>arn</code>, <code>partition</code>, <code>service</code>,
      * <code>region</code>, <code>account-id</code> and <code>resource-id</code>
-     * , delimited by colons (:).
+     * delimited by colons (:).
      * </p>
      * </li>
      * <li>
@@ -1293,7 +1293,7 @@ public class ApiKeyRestrictions implements Serializable {
      * Other than wildcards, you must include the full ARN, including the
      * <code>arn</code>, <code>partition</code>, <code>service</code>,
      * <code>region</code>, <code>account-id</code> and <code>resource-id</code>
-     * , delimited by colons (:).
+     * delimited by colons (:).
      * </p>
      * </li>
      * <li>
@@ -1333,8 +1333,8 @@ public class ApiKeyRestrictions implements Serializable {
      *         Other than wildcards, you must include the full ARN, including
      *         the <code>arn</code>, <code>partition</code>,
      *         <code>service</code>, <code>region</code>,
-     *         <code>account-id</code> and <code>resource-id</code>, delimited
-     *         by colons (:).
+     *         <code>account-id</code> and <code>resource-id</code> delimited by
+     *         colons (:).
      *         </p>
      *         </li>
      *         <li>
@@ -1380,7 +1380,7 @@ public class ApiKeyRestrictions implements Serializable {
      * Other than wildcards, you must include the full ARN, including the
      * <code>arn</code>, <code>partition</code>, <code>service</code>,
      * <code>region</code>, <code>account-id</code> and <code>resource-id</code>
-     * , delimited by colons (:).
+     * delimited by colons (:).
      * </p>
      * </li>
      * <li>
@@ -1420,8 +1420,8 @@ public class ApiKeyRestrictions implements Serializable {
      *            Other than wildcards, you must include the full ARN, including
      *            the <code>arn</code>, <code>partition</code>,
      *            <code>service</code>, <code>region</code>,
-     *            <code>account-id</code> and <code>resource-id</code>,
-     *            delimited by colons (:).
+     *            <code>account-id</code> and <code>resource-id</code> delimited
+     *            by colons (:).
      *            </p>
      *            </li>
      *            <li>
@@ -1472,7 +1472,7 @@ public class ApiKeyRestrictions implements Serializable {
      * Other than wildcards, you must include the full ARN, including the
      * <code>arn</code>, <code>partition</code>, <code>service</code>,
      * <code>region</code>, <code>account-id</code> and <code>resource-id</code>
-     * , delimited by colons (:).
+     * delimited by colons (:).
      * </p>
      * </li>
      * <li>
@@ -1515,8 +1515,8 @@ public class ApiKeyRestrictions implements Serializable {
      *            Other than wildcards, you must include the full ARN, including
      *            the <code>arn</code>, <code>partition</code>,
      *            <code>service</code>, <code>region</code>,
-     *            <code>account-id</code> and <code>resource-id</code>,
-     *            delimited by colons (:).
+     *            <code>account-id</code> and <code>resource-id</code> delimited
+     *            by colons (:).
      *            </p>
      *            </li>
      *            <li>
@@ -1570,7 +1570,7 @@ public class ApiKeyRestrictions implements Serializable {
      * Other than wildcards, you must include the full ARN, including the
      * <code>arn</code>, <code>partition</code>, <code>service</code>,
      * <code>region</code>, <code>account-id</code> and <code>resource-id</code>
-     * , delimited by colons (:).
+     * delimited by colons (:).
      * </p>
      * </li>
      * <li>
@@ -1613,8 +1613,8 @@ public class ApiKeyRestrictions implements Serializable {
      *            Other than wildcards, you must include the full ARN, including
      *            the <code>arn</code>, <code>partition</code>,
      *            <code>service</code>, <code>region</code>,
-     *            <code>account-id</code> and <code>resource-id</code>,
-     *            delimited by colons (:).
+     *            <code>account-id</code> and <code>resource-id</code> delimited
+     *            by colons (:).
      *            </p>
      *            </li>
      *            <li>

@@ -1,5 +1,5 @@
 /*
- * Copyright 2010-2023 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2010-2024 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -25,6 +25,13 @@ import com.amazonaws.AmazonWebServiceRequest;
  * </p>
  */
 public class ListDevicePositionsRequest extends AmazonWebServiceRequest implements Serializable {
+    /**
+     * <p>
+     * The geometry used to filter device positions.
+     * </p>
+     */
+    private TrackingFilterGeometry filterGeometry;
+
     /**
      * <p>
      * An optional limit for the number of entries returned in a single call.
@@ -62,6 +69,51 @@ public class ListDevicePositionsRequest extends AmazonWebServiceRequest implemen
      * <b>Pattern: </b>^[-._\w]+$<br/>
      */
     private String trackerName;
+
+    /**
+     * <p>
+     * The geometry used to filter device positions.
+     * </p>
+     *
+     * @return <p>
+     *         The geometry used to filter device positions.
+     *         </p>
+     */
+    public TrackingFilterGeometry getFilterGeometry() {
+        return filterGeometry;
+    }
+
+    /**
+     * <p>
+     * The geometry used to filter device positions.
+     * </p>
+     *
+     * @param filterGeometry <p>
+     *            The geometry used to filter device positions.
+     *            </p>
+     */
+    public void setFilterGeometry(TrackingFilterGeometry filterGeometry) {
+        this.filterGeometry = filterGeometry;
+    }
+
+    /**
+     * <p>
+     * The geometry used to filter device positions.
+     * </p>
+     * <p>
+     * Returns a reference to this object so that method calls can be chained
+     * together.
+     *
+     * @param filterGeometry <p>
+     *            The geometry used to filter device positions.
+     *            </p>
+     * @return A reference to this updated object so that method calls can be
+     *         chained together.
+     */
+    public ListDevicePositionsRequest withFilterGeometry(TrackingFilterGeometry filterGeometry) {
+        this.filterGeometry = filterGeometry;
+        return this;
+    }
 
     /**
      * <p>
@@ -287,6 +339,8 @@ public class ListDevicePositionsRequest extends AmazonWebServiceRequest implemen
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("{");
+        if (getFilterGeometry() != null)
+            sb.append("FilterGeometry: " + getFilterGeometry() + ",");
         if (getMaxResults() != null)
             sb.append("MaxResults: " + getMaxResults() + ",");
         if (getNextToken() != null)
@@ -302,6 +356,8 @@ public class ListDevicePositionsRequest extends AmazonWebServiceRequest implemen
         final int prime = 31;
         int hashCode = 1;
 
+        hashCode = prime * hashCode
+                + ((getFilterGeometry() == null) ? 0 : getFilterGeometry().hashCode());
         hashCode = prime * hashCode + ((getMaxResults() == null) ? 0 : getMaxResults().hashCode());
         hashCode = prime * hashCode + ((getNextToken() == null) ? 0 : getNextToken().hashCode());
         hashCode = prime * hashCode
@@ -320,6 +376,11 @@ public class ListDevicePositionsRequest extends AmazonWebServiceRequest implemen
             return false;
         ListDevicePositionsRequest other = (ListDevicePositionsRequest) obj;
 
+        if (other.getFilterGeometry() == null ^ this.getFilterGeometry() == null)
+            return false;
+        if (other.getFilterGeometry() != null
+                && other.getFilterGeometry().equals(this.getFilterGeometry()) == false)
+            return false;
         if (other.getMaxResults() == null ^ this.getMaxResults() == null)
             return false;
         if (other.getMaxResults() != null

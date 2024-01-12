@@ -1,5 +1,5 @@
 /*
- * Copyright 2010-2023 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2010-2024 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -67,6 +67,11 @@ public class CalculateRouteRequestMarshaller implements
             AwsJsonWriter jsonWriter = JsonUtils.getJsonWriter(stringWriter);
             jsonWriter.beginObject();
 
+            if (calculateRouteRequest.getArrivalTime() != null) {
+                java.util.Date arrivalTime = calculateRouteRequest.getArrivalTime();
+                jsonWriter.name("ArrivalTime");
+                jsonWriter.value(DateUtils.formatISO8601Date(arrivalTime));
+            }
             if (calculateRouteRequest.getCarModeOptions() != null) {
                 CalculateRouteCarModeOptions carModeOptions = calculateRouteRequest
                         .getCarModeOptions();
@@ -117,6 +122,11 @@ public class CalculateRouteRequestMarshaller implements
                 Boolean includeLegGeometry = calculateRouteRequest.getIncludeLegGeometry();
                 jsonWriter.name("IncludeLegGeometry");
                 jsonWriter.value(includeLegGeometry);
+            }
+            if (calculateRouteRequest.getOptimizeFor() != null) {
+                String optimizeFor = calculateRouteRequest.getOptimizeFor();
+                jsonWriter.name("OptimizeFor");
+                jsonWriter.value(optimizeFor);
             }
             if (calculateRouteRequest.getTravelMode() != null) {
                 String travelMode = calculateRouteRequest.getTravelMode();

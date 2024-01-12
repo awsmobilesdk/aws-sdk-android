@@ -1,5 +1,5 @@
 /*
- * Copyright 2010-2023 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2010-2024 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -53,6 +53,10 @@ public class DeleteKeyRequestMarshaller implements
         request.setHttpMethod(HttpMethodName.DELETE);
 
         String uriResourcePath = "/metadata/v0/keys/{KeyName}";
+        if (deleteKeyRequest.getForceDelete() != null) {
+            request.addParameter("forceDelete",
+                    StringUtils.fromBoolean(deleteKeyRequest.getForceDelete()));
+        }
         uriResourcePath = uriResourcePath.replace(
                 "{KeyName}",
                 (deleteKeyRequest.getKeyName() == null) ? "" : StringUtils
@@ -61,7 +65,7 @@ public class DeleteKeyRequestMarshaller implements
         if (!request.getHeaders().containsKey("Content-Type")) {
             request.addHeader("Content-Type", "application/x-amz-json-1.1");
         }
-        request.setHostPrefix("metadata.");
+        request.setHostPrefix("cp.metadata.");
 
         return request;
     }
